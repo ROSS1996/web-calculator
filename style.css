@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Orbitron:300,400,500,800");
+
 * {
     margin: 0;
     padding: 0;
@@ -22,11 +24,26 @@ main {
     background-color: lightgray;
 }
 
-.screen {
+.display {
     border: 3px solid black;
     width: 350px;
     height: 90px;
     background-color: white;
+    font-family: 'Orbitron', 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+#result {
+    font-size: 25px;
+    font-weight: 800;
+}
+
+#input {
+    font-size: 16px;
+    font-weight: 300;
 }
 
 .controls {
