@@ -56,6 +56,10 @@ main {
     font-weight: 300;
 }
 
+#input p {
+    display: inline;
+}
+
 
 .controls {
     display: flex;
@@ -104,8 +108,6 @@ button:active {
     justify-content: center;
     align-items: center;
     gap: 20px;
-
-
 }
 
 .numbers {
@@ -116,8 +118,8 @@ button:active {
 }
 
 .number, .operator, .calculate {
-    width: 70px;
-    height: 70px;
+    min-width: 70px;
+    min-height: 70px;
     font-size: 20px;
     font-weight: bold;
 }
@@ -133,10 +135,10 @@ button:active {
 }
 
 .operator, .calculate {
-    height: 55px;
+    min-height: 55px;
 }
 
 .zero {
-    height: 60px;
+    min-height: 60px;
     width: 240px;
 }

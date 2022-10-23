@@ -6,68 +6,77 @@ let calculate = document.getElementById('calc')
 
 let number1 = 0;
 let number2 = 0;
+let lastResult = undefined;
+let continueCalc = false;
 
 let operation = undefined
 let currentNumber = ''
-let displayOperation = '';
-
 
 calculate.addEventListener('click', function (){
-    number2 = parseInt(currentNumber)
     operate()
 })
 
 for (const btn of numbers) {
-    btn.addEventListener('click', function (){ changeNumber(this.id)})
+    btn.addEventListener('click', function (){
+        if (continueCalc == true) {
+            clearElements(1, true, false);
+            changeNumber(this.id, 2)
+        }
+        else if (operation == undefined) {
+            changeNumber(this.id, 1)
+        }
+        else {
+            console.log(`Continue calc: ${continueCalc}`)
+            console.log(`Operation: ${operation}`)
+            changeNumber(this.id, 2)
+        }
+    })
 }
 
 for (const btn of operators) {
     btn.addEventListener('click', function (){
-        operation = this.id;
-        number1 = parseInt(currentNumber, 10)
-        currentNumber = ''
-        if (operation == 'divide') {
-            showOperation(' ÷ ', operation)
+        if (lastResult !== undefined) {
+            clearElements(1, false, false);
+            changeOperation(this.id);
+            console.log(`Last result: ${operation}}`)
+            changeNumber(lastResult, 1);
         }
-        else if (operation == 'multiply'){
-            showOperation(' × ', operation)
-        }
-        else if (operation == 'add') {
-            showOperation(' + ', operation)
-        }
-        else if (operation == 'subtract') {
-            showOperation(' − ', operation)
-        }
-        else {
-            return false
-        }
+        changeOperation(this.id);
     }
 )}
 
+cc.addEventListener('click', function () { clearElements (3, true, true);})
 
-cc.addEventListener('click', function () {
-    let element = document.getElementsByClassName('screeElement');
-    element[0].innerText = '';
-    element[1].innerText = '';
-    number1 = 0;
-    number2 = 0;
-    result = 0;
-    operation = undefined
-    currentNumber = ''
-    displayOperation = '';
-})
-
-function changeNumber (number) {
-    let input = document.getElementById('input')
-    currentNumber = currentNumber.concat(number)
-    displayOperation = displayOperation.concat(number)
-    input.innerText = displayOperation;
+function changeNumber (number, position) {
+    if (position == 1) {
+        let input = document.getElementById('number1')
+        currentNumber = currentNumber.concat(number)
+        number1 = parseInt(currentNumber);
+        input.innerText = number1;
+    } else {
+        let input = document.getElementById('number2')
+        currentNumber = currentNumber.concat(number)
+        number2 = parseInt(currentNumber);
+        input.innerText = currentNumber;
+    }
 }
 
-function showOperation (symbol, operation) {
-    let input = document.getElementById('input')
-    displayOperation = displayOperation.concat(symbol)
-    input.innerText = displayOperation;
+function changeOperation (op) {
+    let input = document.getElementById('operation')
+    currentNumber = ''
+    operation = op;
+    if (operation == 'divide') {
+        input.innerText = ' ÷ ';
+    }
+    else if (operation == 'multiply'){
+        input.innerText = ' × ';
+    }
+    else if (operation == 'add') {
+        input.innerText = ' + ';
+    }
+    else if (operation == 'subtract') {
+        input.innerText = ' − ';
+    }
 }
 
 function operate () {
@@ -86,12 +95,36 @@ function operate () {
         result = subtract(number1, number2)
     }
     input.innerText = result;
+    lastResult = result;
+    clearElements(0, false, true);
 }
 
-function logNumbers () {
-    console.log(`Number 1: ${number1}`)
-    console.log(`Number 2: ${number2}`)
+function clearElements (elements, memory = false, operation = false) {
+    let element = document.getElementsByClassName('screeElement');
+    [number1, number2] = [0,0];
+    currentNumber = '';
+    if (elements == 1) {
+        for (i = 0; i < 3; i++) { element[i].innerText = ''};
+    }
+    else if (elements == 2) {
+        for (i = 0; i < 3; i++) { element[i].innerText = ''};
+        element[3].innerText = 0;
+    }
+    else if (elements == 3) {
+        for (i = 0; i < 3; i++) { element[i].innerText = ''};
+        element[3].innerText = 0;
+    }
+    if (memory == true) {
+        lastResult = undefined;
+        continueCalc = false;
+    }
+    if (operation == true) {
+        console.log('limpei operation?')
+        operation = undefined;
+        console.log(`Operation ${operation}`)
+    }
 }
+
 
 function add (a, b) { return a + b};
 function subtract (a, b) {return a - b};
