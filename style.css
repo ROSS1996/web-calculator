@@ -115,11 +115,15 @@ button:active {
     gap: 8px;
 }
 
-.number, .operator {
+.number, .operator, .calculate {
     width: 70px;
     height: 70px;
     font-size: 20px;
     font-weight: bold;
+}
+
+.number {
+    width: 75px;
 }
 
 .operators {
@@ -128,11 +132,11 @@ button:active {
     gap: 5px;
 }
 
-.operator {
+.operator, .calculate {
     height: 55px;
 }
 
-#number0 {
+.zero {
     height: 60px;
-    width: 225px;
+    width: 240px;
 }
