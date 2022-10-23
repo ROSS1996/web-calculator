@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.frame {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 5px solid black;
+    width: 400px;
+    height: 600px;
+    padding: 20px;
+    background-color: lightgray;
+}
+
+.screen {
+    border: 3px solid black;
+    width: 350px;
+    height: 90px;
+    background-color: white;
+}
+
+.controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 20px;
+}
+
+.control {
+    width: 160px;
+    height: 40px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.keys {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 30px;
+    border: 2px solid black;
+}
+
+.numbers {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    gap: 8px;
+}
+
+.number, .operator {
+    width: 70px;
+    height: 70px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.operators {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.operator {
+    height: 55px;
+}
+
+#number0 {
+    height: 60px;
+    width: 225px;
+}
