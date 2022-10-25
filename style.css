@@ -54,10 +54,8 @@ main {
 #input {
     font-size: 16px;
     font-weight: 300;
-}
-
-#input p {
-    display: inline;
+    display: flex;
+    flex-direction: row;
 }
 
 

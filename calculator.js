@@ -20,7 +20,7 @@ for (const btn of numbers) {
     btn.addEventListener('click', function (){
         if (operation == undefined) {
             if (answer != undefined ) {
-                clearElements(3, true);
+                clearElements(3, false);
                 clearMemory(3, true, true);
             }
             changeNumber(this.id, 1)
@@ -36,8 +36,25 @@ for (const btn of operators) {
         if (number1 !== undefined) {
             changeOperation(this.id)
         }
+        else if (number2 !== undefined) {
+            operate();
+            changeOperation(this.id)
+        }
     }
 )}
+
+ce.addEventListener('click', function () {
+    if (operation == undefined) {
+        if (answer != undefined ) {
+            clearElements(3, false);
+            clearMemory(3, true, true);
+        }
+        clearEntry(1);
+    }
+    else if (number1 !== undefined && operation !== undefined) {
+        clearEntry(2);
+    }
+})
 
 cc.addEventListener('click', function () {
     clearElements(3, true);
@@ -55,6 +72,26 @@ function changeNumber (number, position) {
         let input = document.getElementById('number2')
         currentNumber = currentNumber.concat(number)
         number2 = parseInt(currentNumber);
+        input.innerText = currentNumber;
+    }
+}
+
+
+function clearEntry (position = 1) {
+    if (position == 1 && currentNumber !== '') {
+        let input = document.getElementById('number1')
+        currentNumber = currentNumber.slice(0, -1);
+        if (currentNumber == '') {
+            number1 = 0;
+        } else {number1 = parseInt(currentNumber);}
+        input.innerText = number1;
+    }
+    else if (position == 2 && currentNumber !== '') {
+        let input = document.getElementById('number2')
+        currentNumber = currentNumber.slice(0, -1);
+        if (currentNumber == '') {
+            number2 = 0;
+        } else {number2 = parseInt(currentNumber);}
         input.innerText = currentNumber;
     }
 }
