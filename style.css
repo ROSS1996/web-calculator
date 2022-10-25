@@ -35,7 +35,9 @@ main {
     border: 3px solid black;
     width: 375px;
     height: 90px;
-    background-color: rgb(194, 238, 194);
+    /*background-color: rgb(194, 238, 194);*/
+    background: rgb(165,222,165);
+    background: linear-gradient(0deg, rgba(165,222,165,1) 0%, rgba(125,208,125,1) 35%, rgba(100,231,100,1) 100%);
     font-family: 'Orbitron', 'Courier New', Courier, monospace;
     display: flex;
     flex-direction: column;
@@ -43,7 +45,7 @@ main {
     align-items: flex-end;
     padding: 10px;
     gap: 3px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
 }
 
 #result {
@@ -115,14 +117,14 @@ button:active {
     gap: 8px;
 }
 
-.number, .operator, .calculate {
+.number, .operator, .calculate, .float {
     min-width: 70px;
     min-height: 70px;
     font-size: 20px;
     font-weight: bold;
 }
 
-.number {
+.number, .float {
     width: 75px;
 }
 
@@ -138,5 +140,5 @@ button:active {
 
 .zero {
     min-height: 60px;
-    width: 240px;
+    width: 158px;
 }

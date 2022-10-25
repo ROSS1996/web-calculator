@@ -1,4 +1,5 @@
 let numbers = document.getElementsByClassName('number')
+let floatPoint = document.getElementById('.')
 let ce = document.getElementById('ce')
 let cc = document.getElementById('cc')
 let operators = document.getElementsByClassName('operator')
@@ -30,6 +31,15 @@ for (const btn of numbers) {
         }
     })
 }
+
+floatPoint.addEventListener('click', function () {
+    if (operation == undefined && !currentNumber.includes('.')) {
+        changeNumber('.', 1)
+    }
+    else if (number1 !== undefined && operation !== undefined&& !currentNumber.includes('.')) {
+        changeNumber('.', 2)
+    }
+})
 
 for (const btn of operators) {
     btn.addEventListener('click', function (){
@@ -65,13 +75,17 @@ function changeNumber (number, position) {
     if (position == 1) {
         let input = document.getElementById('number1')
         currentNumber = currentNumber.concat(number)
-        number1 = parseInt(currentNumber);
+        if (currentNumber.includes('.')) {
+            number1 = parseFloat(currentNumber);
+        } else { number1 = parseInt(currentNumber); }
         input.innerText = number1;
     }
     else if (position == 2) {
         let input = document.getElementById('number2')
         currentNumber = currentNumber.concat(number)
-        number2 = parseInt(currentNumber);
+        if (currentNumber.includes('.')) {
+            number2 = parseFloat(currentNumber);
+        } else { number2 = parseInt(currentNumber); }
         input.innerText = currentNumber;
     }
 }
@@ -83,7 +97,13 @@ function clearEntry (position = 1) {
         currentNumber = currentNumber.slice(0, -1);
         if (currentNumber == '') {
             number1 = 0;
-        } else {number1 = parseInt(currentNumber);}
+        }
+        else if (currentNumber.includes('.')) {
+            number1 = parseFloat(currentNumber);
+        }
+        else {
+            number1 = parseInt(currentNumber);
+        }
         input.innerText = number1;
     }
     else if (position == 2 && currentNumber !== '') {
@@ -91,7 +111,11 @@ function clearEntry (position = 1) {
         currentNumber = currentNumber.slice(0, -1);
         if (currentNumber == '') {
             number2 = 0;
-        } else {number2 = parseInt(currentNumber);}
+        }
+        else if (currentNumber.includes('.')) {
+            number2 = parseFloat(currentNumber);
+        }
+        else {number2 = parseInt(currentNumber);}
         input.innerText = currentNumber;
     }
 }
@@ -170,7 +194,6 @@ function clearMemory (number, op = false, ans = false) {
         answer = undefined
     }
 }
-
 
 function add (a, b) { return a + b};
 function subtract (a, b) {return a - b};
