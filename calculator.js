@@ -17,6 +17,10 @@ calculate.addEventListener('click', function (){
     operate()
 })
 
+document.addEventListener( "keydown", function(key) {
+    KeyPress(key)
+});
+
 for (const btn of numbers) {
     btn.addEventListener('click', function (){
         if (operation == undefined) {
@@ -193,6 +197,59 @@ function clearMemory (number, op = false, ans = false) {
     if (ans == true) {
         answer = undefined
     }
+}
+
+function KeyPress (event) {
+    let key = event.key
+    if (!isNaN(parseInt(key)))
+    {
+        if (operation == undefined) {
+            if (answer != undefined ) {
+                clearElements(3, false);
+                clearMemory(3, true, true);
+            }
+            changeNumber(key, 1)
+        }
+        else if (number1 !== undefined && operation !== undefined) {
+            changeNumber(key, 2)
+        }
+    }
+    else if (key == '+' || key == '-' || key == '/' || key == '*') {
+        switch (key) {
+            case '+': key = 'add'; break;
+            case '-': key = 'subtract'; break;
+            case '*': key = 'multiply'; break;
+            case '/': key = 'divide'; break;
+        }
+        if (number1 !== undefined) {
+            changeOperation(key)
+        }
+        else if (number2 !== undefined) {
+            operate();
+            changeOperation(key)
+        }
+    }
+    else if (key == ',' || key == '.') {
+        if (operation == undefined && !currentNumber.includes('.')) {
+            changeNumber('.', 1)
+        }
+        else if (number1 !== undefined && operation !== undefined&& !currentNumber.includes('.')) {
+            changeNumber('.', 2)
+        }
+    }
+    else if (key == 'Backspace') {
+        if (operation == undefined) {
+            if (answer != undefined ) {
+                clearElements(3, false);
+                clearMemory(3, true, true);
+            }
+            clearEntry(1);
+        }
+        else if (number1 !== undefined && operation !== undefined) {
+            clearEntry(2);
+        }
+    }
+    else if (key == 'Enter' || key == '=') { operate() }
 }
 
 function add (a, b) { return a + b};
