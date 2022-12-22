@@ -1,144 +1,154 @@
 @import url("https://fonts.googleapis.com/css?family=Orbitron:300,400,500,800");
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background-image: url('./assets/background.jpg');
-    background-position: center;
-    background-repeat: repeat;
+  background-image: url("./images/background.jpg");
+  background-position: center;
+  background-repeat: repeat;
 }
 
 main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .frame {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    border: 5px solid black;
-    width: 400px;
-    height: 600px;
-    padding: 20px;
-    background-color: lightslategray;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 5px solid black;
+  width: 400px;
+  height: 600px;
+  padding: 20px;
+  background-color: lightslategray;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 .display {
-    border: 3px solid black;
-    width: 375px;
-    height: 90px;
-    /*background-color: rgb(194, 238, 194);*/
-    background: rgb(165,222,165);
-    background: linear-gradient(0deg, rgba(165,222,165,1) 0%, rgba(125,208,125,1) 35%, rgba(100,231,100,1) 100%);
-    font-family: 'Orbitron', 'Courier New', Courier, monospace;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    padding: 10px;
-    gap: 3px;
-    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
+  border: 3px solid black;
+  width: 375px;
+  height: 90px;
+  background: rgb(165, 222, 165);
+  background: linear-gradient(
+    0deg,
+    rgba(165, 222, 165, 1) 0%,
+    rgba(125, 208, 125, 1) 35%,
+    rgba(100, 231, 100, 1) 100%
+  );
+  font-family: "Orbitron", "Courier New", Courier, monospace;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 10px;
+  gap: 3px;
 }
 
 #result {
-    font-size: 25px;
-    font-weight: 800;
+  font-size: 25px;
+  font-weight: 800;
 }
 
 #input {
-    font-size: 16px;
-    font-weight: 300;
-    display: flex;
-    flex-direction: row;
+  font-size: 16px;
+  font-weight: 300;
+  display: flex;
+  flex-direction: row;
 }
 
-
 .controls {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 20px;
 }
 
 #ce {
-    background-color: rgb(230, 230, 48)
+  background-color: rgb(230, 230, 48);
 }
 
 #cc {
-    background-color: rgb(224, 28, 28);
+  background-color: rgb(224, 28, 28);
 }
 
 button {
-    border-radius: 3px;
-    border: 1px solid black;
-    cursor: pointer;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  border-radius: 3px;
+  border: 1px solid black;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 button:active {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 .control {
-    width: 160px;
-    height: 40px;
-    font-weight: bold;
-    font-size: 20px;
+  width: 160px;
+  height: 40px;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .keyboard {
-    padding: 30px;
-    border: 3px solid black;
-    gap: 20px;
-    display: flex;
-    flex-direction: column;
+  padding: 30px;
+  border: 3px solid black;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .keys {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 .numbers {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap-reverse;
-    gap: 8px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap-reverse;
+  gap: 8px;
 }
 
-.number, .operator, .calculate, .float {
-    min-width: 70px;
-    min-height: 70px;
-    font-size: 20px;
-    font-weight: bold;
+.number,
+.operator,
+.calculate,
+.float {
+  min-width: 70px;
+  min-height: 70px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
-.number, .float {
-    width: 75px;
+.number,
+.float {
+  width: 75px;
 }
 
 .operators {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
-.operator, .calculate {
-    min-height: 55px;
+.operator,
+.calculate {
+  min-height: 55px;
 }
 
 .zero {
-    min-height: 60px;
-    width: 158px;
+  min-height: 60px;
+  width: 158px;
 }
